@@ -41,8 +41,11 @@ public class CosechaService {
         cosecha.setAgricultor(agricultor);
 
         cosechaRepository.save(cosecha);
+        // Log para confirmar que el mensaje se envió
+        System.out.println("Enviando mensaje a RabbitMQ para la cosecha: " + cosecha.getId());
 
-        rabbitTemplate.convertAndSend("cosechaExchange", "cosechaQueue", cosecha);
+
+        rabbitTemplate.convertAndSend("cosechaExchange", "cosecha.nueva", cosecha);
 
         return cosecha;
     }

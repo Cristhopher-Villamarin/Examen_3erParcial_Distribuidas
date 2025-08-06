@@ -3,7 +3,9 @@ package com.agroflow.cosecha_service.service;
 import com.agroflow.cosecha_service.dto.AgricultorDTO;
 import com.agroflow.cosecha_service.model.Agricultor;
 import com.agroflow.cosecha_service.repository.AgricultorRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AgricultorService {
     private final AgricultorRepository agricultorRepository;
 
