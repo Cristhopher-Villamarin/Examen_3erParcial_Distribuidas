@@ -11,8 +11,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="facturacion-service" />
-        <module name="inventario-service" />
         <module name="cosecha-service" />
+        <module name="inventario-service" />
       </profile>
     </annotationProcessing>
   </component>
