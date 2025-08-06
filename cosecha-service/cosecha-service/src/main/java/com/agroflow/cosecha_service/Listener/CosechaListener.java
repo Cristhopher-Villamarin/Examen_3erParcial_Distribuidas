@@ -13,7 +13,7 @@ public class CosechaListener {
         this.cosechaService = cosechaService;
     }
 
-    @RabbitListener(queues = "facturacionQueue")
+    @RabbitListener(queues = "cola_facturacion")
     public void handleFacturacionMessage(FacturaMessage message) {
         cosechaService.actualizarEstado(
                 Long.parseLong(message.getCosechaId()), // <- conversión necesaria

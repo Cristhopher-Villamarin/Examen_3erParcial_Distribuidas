@@ -2,37 +2,38 @@ package com.agroflow.cosecha_service.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import org.springframework.amqp.core.Queue;
-
-
 @Configuration
 public class RabbitMQConfig {
+
+    public static final String EXCHANGE = "agroflow_exchange";
+
     @Bean
-    public Queue cosechaQueue() {
-        return new Queue("cosechaQueue", true);
+    public TopicExchange exchange() {
+        return new TopicExchange(EXCHANGE);
     }
 
     @Bean
-    public Queue facturacionQueue() {
-        return new Queue("facturacionQueue", true);
+    public Queue colaNuevaCosecha() {
+        return new Queue("cola_nueva_cosecha", true);
     }
 
     @Bean
-    public DirectExchange exchange() {
-        return new DirectExchange("cosechaExchange");
+    public Queue colaFacturacion() {
+        return new Queue("cola_facturacion", true);
     }
 
     @Bean
-    public Binding bindingCosecha(Queue cosechaQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(cosechaQueue).to(exchange).with("cosechaQueue");
+    public Binding bindingCosecha(Queue colaNuevaCosecha, TopicExchange exchange) {
+        return BindingBuilder.bind(colaNuevaCosecha).to(exchange).with("cosecha.nueva");
     }
 
     @Bean
-    public Binding bindingFacturacion(Queue facturacionQueue, DirectExchange exchange) {
-        return BindingBuilder.bind(facturacionQueue).to(exchange).with("facturacionQueue");
+    public Binding bindingFacturacion(Queue colaFacturacion, TopicExchange exchange) {
+        return BindingBuilder.bind(colaFacturacion).to(exchange).with("inventario.ajustado");
     }
 }
