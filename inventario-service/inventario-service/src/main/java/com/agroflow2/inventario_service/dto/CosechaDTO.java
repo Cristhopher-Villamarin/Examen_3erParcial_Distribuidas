@@ -13,5 +13,5 @@ import lombok.AllArgsConstructor;
 public class CosechaDTO {
     private String cosechaId;
     private String producto;
-    private double cantidad;
+    private double tonelada;
 }

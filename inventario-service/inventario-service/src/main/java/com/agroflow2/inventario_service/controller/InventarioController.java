@@ -23,8 +23,9 @@ public class InventarioController {
         return inventarioService.obtenerInsumoPorNombre(nombreInsumo);
     }
 
-    @RabbitListener(queues = RabbitMQConfig.QUEUE_COSECHA)
+    @RabbitListener(queues = "cola_nueva_cosecha")
     public void consumirCosecha(CosechaDTO cosechaDTO) {
+        System.out.println("Recibiendo cosecha: " + cosechaDTO.getProducto());
         inventarioService.procesarCosecha(cosechaDTO);
     }
 }
