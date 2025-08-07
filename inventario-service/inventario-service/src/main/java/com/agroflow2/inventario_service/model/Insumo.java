@@ -23,7 +23,6 @@ public class Insumo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombreInsumo;
     private double stock;
 }

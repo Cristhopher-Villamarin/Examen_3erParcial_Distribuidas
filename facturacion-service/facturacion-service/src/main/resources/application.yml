@@ -3,8 +3,8 @@ spring:
     name: facturacion-service
   datasource:
     url: jdbc:postgresql://localhost:5432/facturacion_db
-    username: admin
-    password: admin123
+    username: postgres
+    password: espe
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -14,7 +14,7 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: admin
-    password: admin
+    username: guest
+    password: guest
 server:
   port: 8081

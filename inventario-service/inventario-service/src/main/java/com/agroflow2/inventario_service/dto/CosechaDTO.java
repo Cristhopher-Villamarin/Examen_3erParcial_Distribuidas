@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CosechaDTO {
-    private String cosechaId;
+    private String id;
     private String producto;
-    private double cantidad;
+    private Double tonelada;
 }

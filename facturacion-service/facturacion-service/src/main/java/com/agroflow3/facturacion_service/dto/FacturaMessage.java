@@ -1,4 +1,4 @@
-package com.agroflow.cosecha_service.model;
+package com.agroflow3.facturacion_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
