@@ -5,9 +5,9 @@ spring:
   application:
     name: consecha-service
   datasource:
-    url: jdbc:mysql://localhost:3306/consecha_db?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/consecha_db?allowPublicKeyRetrieval=true&useSSL=false
     username: root
-    password: espe
+    password: root123
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,8 +17,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: admin
 
 management:
   endpoints:

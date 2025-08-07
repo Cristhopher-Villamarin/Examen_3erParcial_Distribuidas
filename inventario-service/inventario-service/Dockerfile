@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia el archivo .jar generado desde el directorio target al contenedor
-COPY target/facturacion-service-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY target/inventario-service-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # Expone el puerto que usa Eureka (por defecto 8761)
-EXPOSE 8081
+EXPOSE 8082
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
