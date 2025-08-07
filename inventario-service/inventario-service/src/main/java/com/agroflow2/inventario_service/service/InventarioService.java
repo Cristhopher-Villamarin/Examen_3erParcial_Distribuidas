@@ -23,7 +23,7 @@ public class InventarioService {
 
     public void procesarCosecha(CosechaDTO cosechaDTO) {
         String nombreInsumo = cosechaDTO.getProducto();
-        double cantidadCosecha = cosechaDTO.getTonelada();
+        double cantidadCosecha = cosechaDTO.getCantidad();
 
         // Buscar si el insumo ya existe
         Insumo insumo = insumoRepository.findByNombreInsumo(nombreInsumo);
@@ -39,7 +39,6 @@ public class InventarioService {
         }
         insumo.setStock(nuevoStock);
         insumoRepository.save(insumo);
-
 
         // Publicar evento en cola_inventario_ajustado
         InsumoAjustadoDTO ajusteDTO = new InsumoAjustadoDTO(
